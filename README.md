@@ -1,24 +1,48 @@
-# README
+# SneakerSocial
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+本サイトはスニーカーに興味を持つ人々が集い、情報共有やコミュニケーションを通じて、<br>
+スニーカーカルチャーの発展や普及を目的としたSNSサイトです。<br>
 
-Things you may want to cover:
+具体的には、お気に入りのスニーカーの紹介やレビュー、<br>
+スニーカーファン同士が交流することで、スニーカーカルチャーの拡大や深化を促すことが目的です。<br>
+また、スニーカーブランドやショップ、デザイナーなどがSNSを活用して情報発信することで、<br>
+新たなファン層の獲得やブランド価値の向上にもつながると考えております。<br>
 
-* Ruby version
+### テーマを選んだ理由
+スニーカーカルチャーに興味がある人やスニーカーを愛好している人は多く、<br>
+趣味やライフスタイルとしてスニーカーを楽しんでいる人も少なくないです。<br>
+私自身、スニーカーを愛好しております。<br>
+自身のスニーカー写真や他ユーザーのコレクション写真やレビューの内容など、<br>
+SNSを活用してコミュニケーションや情報収集ができる場を作りたいと思いました。<br>
+また、どんなスニーカーを買うか迷った人にも有益な情報が得られると思い、アプリを作ろうと思いました。<br>
 
-* System dependencies
 
-* Configuration
+### ターゲットユーザ
+- スニーカーを履いている人
+- これからスニーカーを買いたいと思っている人
+- スニーカーをコレクションしている人
+- スニーカーブランドに興味がある人
+- スニーカーブランド企業様
 
-* Database creation
+### 主な利用シーン
+- 入手したスニーカーの写真やレビューを投稿したいとき
+- スニーカーの履き心地やサイズ感のレビューを見たい時
+- スニーカーとの交流や情報共有
+- 最新のトレンド情報や、新作の情報を知りたい時
+- スニーカーブランド企業様がユーザーの意見収集をする時
 
-* Database initialization
 
-* How to run the test suite
+## 設計書
+- 未定
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 仕様検討中
