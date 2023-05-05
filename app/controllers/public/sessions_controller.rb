@@ -18,6 +18,19 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
+  # ゲスト会員ログイン
+  def guest_sign_in
+    user = User.find_or_create_by!(email: "guest@guest.com") do |guest|
+      guest.name = "ゲストユーザー"
+      guest.password = "aaaaaa"
+    end
+
+    sign_in user
+    redirect_to root_path
+  end
+
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
