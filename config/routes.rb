@@ -5,17 +5,23 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  # 会員ユーザー用
+  # ユーザー用
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  
+  # 会員ゲストログイン
+  devise_scope :user do
+    post '/users/guest_sign_in' => 'public/sessions#guest_sign_in'
+  end
 
   # 管理者側
   namespace :admin do
     resources :posts, only: [:index, :show, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
+    
     resources :users, only: [:index, :show, :edit, :update]
     get "search" => "searches#search" 
   end
