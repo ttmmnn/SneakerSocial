@@ -1,0 +1,2 @@
+module Admin::SerchesHelper
+end
