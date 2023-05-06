@@ -1,2 +1,35 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 px-sm-0 mb-3">
+      <h2 class="d-inline-block">投稿詳細</h2>
+    </div>
+
+    <!--投稿画像-->
+    <div class="col-lg-4 mx-auto text-center">
+      <%= image_tag @post.get_post_image(300,300) %>
+    </div>
+
+    <!--投稿情報-->
+    <div class="col-sm-8 mx-auto text-left">
+      <table class="table table-reflow">
+        <tr>
+          <th style="width:120px">タイトル</th>
+          <td><%= @post.title %></td>
+        </tr>
+        <tr>
+          <th style="width:150px">投稿日</th>
+          <td><%= @post.created_at.to_s(:datetime_jp) %></td>  <!--日付の表示方法を変える-->
+        </tr>
+        <tr>
+          <th style="width:150px">ユーザー名</th>
+          <td><%= @post.user.name %></td>
+        </tr>
+        <tr>
+          <th style="width:150px">内容</th>
+          <td><%= @post.body %></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
