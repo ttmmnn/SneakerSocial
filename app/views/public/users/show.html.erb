@@ -1,2 +1,46 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 px-sm-0 mb-3">
+      <h3 class="d-inline-block">マイページ</h3>
+    </div>
+    <!--ユーザー編集リンク-->
+    <div class="col-sm-8">
+      <%= link_to edit_user_path(@user), class:"btn btn-lg btn-primary" do %>
+      <h5 class="mb-0"><i class="fas fa-user-cog"></i> 編集する</h5>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <!--フォロワー/フォロー表示-->
+    <div class="col-sm-2">
+      <div class="">
+        <P>フォロワー：○○</P>
+        <P>フォロー：○○</P>
+      </div>
+    </div>
+    <!--ユーザー画像-->
+    <div class="col-sm-2">
+      <%= image_tag @user.get_profile_image(200,200) %>
+    </div>
+    <!--ネーム、紹介文-->
+    <div class="col-sm-7 ml-5">
+      <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">ユーザー名</div>
+        <div class="card-body">
+          <p class="card-text"><%= @user.name %></p>
+        </div>
+      </div>
+      <div class="card text-white bg-secondary mb-3" style="max-width: 60rem;">
+        <div class="card-header">紹介文</div>
+        <div class="card-body">
+          <p class="card-text"><%= @user.introduction %></p>
+        </div>
+      </div>
+    </div>
+    <!--投稿履歴一覧-->
+    <div class="col-sm-12 mt-3">
+      <%= render 'post_index', posts: @posts %>
+    </div>
+  </div>
+</div>

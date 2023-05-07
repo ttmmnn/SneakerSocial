@@ -1,0 +1,19 @@
+<h5>投稿履歴</h5>
+<table class='table table-sm'>
+  <thead>
+    <th>画像</th>
+    <th>タイトル</th>
+    <th>投稿日</th>
+    <th>いいね</th>
+    <th>閲覧数</th>
+  </thead>
+  <% posts.each do |post| %>
+  <tbody>
+    <td class="align-middle"><%= image_tag post.get_post_image(80,80) %></td>
+    <td class="align-middle"><%= post.title %></td>
+    <td class="align-middle"><%= post.created_at.to_s(:datetime_jp) %></td>
+    <td class="align-middle"></td>
+    <td class="align-middle"></td>
+  </tbody>
+  <% end %>
+</table>
