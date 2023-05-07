@@ -1,2 +1,16 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="bg-light p-4 mb-0">投稿編集</h5>
+
+      <div class="p-4">
+        <!--エラーメッセージ　部分テンプレート-->
+        <%= render 'error_message', post: @post %>
+
+        <!--編集　入力フォーム-->
+        <%= render 'form', post: @post %>
+      </div>
+
+    </div>
+  </div>
+</div>

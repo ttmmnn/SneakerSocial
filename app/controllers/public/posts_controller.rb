@@ -3,7 +3,6 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post_page = Post.page(params[:page]).per(8)
-
   end
 
   def show
@@ -11,6 +10,7 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+     @post = Post.find(params[:id])
   end
 
   def new
@@ -24,6 +24,27 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path
     else
       render :new
+    end
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      flash[:notice] = "編集しました"
+      redirect_to post_path(@post.id)
+    else
+      flash[:alert] = "空欄を入力してください"
+      redirect_to edit_post_path(@post)
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.user.id == current_user
+      @post.destroy
+      redirect_to posts_path
+    else
+      redirect_to post_path(@post.id)
     end
   end
 
