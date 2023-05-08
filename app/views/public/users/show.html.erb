@@ -5,8 +5,10 @@
     </div>
     <!--ユーザー編集リンク-->
     <div class="col-sm-8">
-      <%= link_to edit_user_path(@user), class:"btn btn-lg btn-primary" do %>
-      <h5 class="mb-0"><i class="fas fa-user-cog"></i> 編集する</h5>
+      <% if @user.name != "ゲストユーザー" %>
+        <%= link_to edit_user_path(@user), class:"btn btn-lg btn-primary" do %>
+          <h5 class="mb-0"><i class="fas fa-user-cog"></i> 編集する</h5>
+        <% end %>
       <% end %>
     </div>
   </div>

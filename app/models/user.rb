@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+  # 画像のサイズ調整と画像がない場合のデフォルト設定
   def get_profile_image(width,height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/noimage.png')
