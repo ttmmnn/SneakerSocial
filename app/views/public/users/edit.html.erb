@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-sm-4 mt-3">
         <%= image_tag @user.get_profile_image(200,200) %>
-        <%= f.file_field :image, accept: "image/*", class:"mt-3 w-100" %>
+        <%= f.file_field :profile_image, accept: "image/*", class:"mt-3 w-100" %>
       </div>
       <div class="col-sm-6">
         <div class="form-group mt-2">

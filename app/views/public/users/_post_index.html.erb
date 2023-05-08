@@ -10,10 +10,15 @@
   <% posts.each do |post| %>
   <tbody>
     <td class="align-middle"><%= image_tag post.get_post_image(80,80) %></td>
-    <td class="align-middle"><%= post.title %></td>
+    <td class="align-middle">
+      <%= link_to post_path(post.id) do %>
+        <%= post.title %>
+      <% end %>
+    </td>
     <td class="align-middle"><%= post.created_at.to_s(:datetime_jp) %></td>
     <td class="align-middle"></td>
     <td class="align-middle"></td>
   </tbody>
   <% end %>
 </table>
+<%= paginate @posts %>

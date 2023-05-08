@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(5)
   end
 
   def edit
@@ -28,7 +28,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :image, :introduction, :email, :encrypted_password, :members_status)
+    params.require(:user).permit(:name, :profile_image, :introduction, :email, :encrypted_password, :members_status)
   end
 
   # ゲストユーザーでedit画面に遷移させないメソッド
