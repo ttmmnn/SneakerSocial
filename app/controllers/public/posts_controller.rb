@@ -7,6 +7,8 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = current_user.comments.new
+    @comments = @post.comments.page(params[:page]).per(5).reverse_order
   end
 
   def edit

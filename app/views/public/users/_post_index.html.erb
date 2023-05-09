@@ -5,7 +5,7 @@
     <th>タイトル</th>
     <th>投稿日</th>
     <th>いいね</th>
-    <th>閲覧数</th>
+    <th>コメント</th>
   </thead>
   <% posts.each do |post| %>
   <tbody>
@@ -16,9 +16,9 @@
       <% end %>
     </td>
     <td class="align-middle"><%= post.created_at.to_s(:datetime_jp) %></td>
-    <td class="align-middle"></td>
+    <td class="align-middle"><%=post.favorites.count %></td>
     <td class="align-middle"></td>
   </tbody>
   <% end %>
 </table>
-<%= paginate @posts %>
+<%= paginate posts %>

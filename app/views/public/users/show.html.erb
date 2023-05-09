@@ -4,7 +4,7 @@
       <h3 class="d-inline-block">マイページ</h3>
     </div>
     <!--ユーザー編集リンク-->
-    <div class="col-sm-8">
+    <div class="col-sm-3 ml-5">
       <% if @user.name != "ゲストユーザー" %>
         <%= link_to edit_user_path(@user), class:"btn btn-lg btn-primary" do %>
           <h5 class="mb-0"><i class="fas fa-user-cog"></i> 編集する</h5>
@@ -16,10 +16,24 @@
   <div class="row">
     <!--フォロワー/フォロー表示-->
     <div class="col-sm-2">
-      <div class="">
-        <P>フォロワー：○○</P>
-        <P>フォロー：○○</P>
-      </div>
+      <%= link_to user_followers_path(@user.id) do %>
+        <P>フォロワー： <%= @user.followers.count %></P>
+      <% end %>
+
+      <%= link_to user_followings_path(@user.id) do %>
+        <P>フォロー： <%= @user.followings.count %></P>
+      <% end %>
+
+      <% if current_user.following?(@user) %>
+        <%= link_to  user_relationships_path(@user.id), method: :delete, class:"btn btn-secondary" do %>
+          <p class="mb-0">フォロー外す</p>
+        <% end %>
+      <% else %>
+        <%= link_to user_relationships_path(@user.id), method: :post, class: "btn btn-primary" do %>
+          <p class="mb-0">フォローする</p>
+        <% end %>
+      <% end %>
+
     </div>
     <!--ユーザー画像-->
     <div class="col-sm-2">

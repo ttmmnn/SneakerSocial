@@ -27,5 +27,20 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  # フォローした時の処理
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  
+  # フォローした時の処理
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  
+  # フォローしているか判定
+  def following?(user)
+    followings.include?(user)
+  end
 
 end
