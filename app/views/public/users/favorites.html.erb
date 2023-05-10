@@ -8,30 +8,30 @@
 　<!--いいね記事一覧-->
   <div class="row">
     <div class="col-sm-8 mx-auto">
-      <% @favorite_posts.each do |post| %>
-        <table class="table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>タイトル</th>
-              <th class="text-center">いいね</th>
-              <th class="text-center">コメント</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= image_tag post.get_post_image(50,50) %></td>
-              <td>
-                <%= link_to post_path(post.id) do %>
-                  <%= post.title %>
-                <% end %>
-              </td>
-              <td class="text-center"><%= post.favorites.count %></td>
-              <td class="text-center"><%= post.comments.count %></td>
-            </tr>
-          </tbody>
-        </table>
-      <% end %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>タイトル</th>
+            <th class="text-center">いいね</th>
+            <th class="text-center">コメント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @favorite_posts.each do |post| %>
+          <tr>
+            <td><%= image_tag post.get_post_image(50,50) %></td>
+            <td>
+              <%= link_to post_path(post.id) do %>
+                <%= post.title %>
+              <% end %>
+            </td>
+            <td class="text-center"><%= post.favorites.count %></td>
+            <td class="text-center"><%= post.comments.count %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
