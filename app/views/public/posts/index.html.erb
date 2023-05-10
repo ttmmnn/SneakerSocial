@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 px-sm-0 mb-3">
-      <h2 class="d-inline-block">投稿一覧</h2>
-      <h4 class="d-inline-block ml-3">（全 <%= @posts.count %>件）</h4>
+      <h4 class="d-inline-block">投稿一覧</h4>
+      <h5 class="d-inline-block ml-3">（全 <%= @posts.count %>件）</h5>
     </div>
     <!--新規投稿リンク-->
     <div class="col-sm-8">
-      <%= link_to new_post_path, class:"btn btn-lg btn-dark" do %>
-      <h5 class="mb-0"><i class="fas fa-plus-circle"></i> 投稿する</h5>
+      <%= link_to new_post_path, class:"btn btn-lg btn-primary" do %>
+      <h6 class="mb-0"><i class="fas fa-plus-circle"></i> 投稿する</h6>
       <% end %>
     </div>
   </div>
@@ -15,15 +15,15 @@
   <!--投稿一覧-->
   <div class="row">
     <% @posts.each do |post| %>
-    <div class=" col-xs-10 col-sm-6 col-md-6 col-lg-3">
-      <div class="card w-100 h-100 bg-transparent text-center" style="width: 18rem;">
+    <div class=" col-xs-10 col-sm-6 col-md-6 col-lg-3 mb-3">
+      <div class="card w-100 h-100 bg-bg-light text-center pt-2" style="width: 18rem;">
         <%= link_to post_path(post) do %>
           <p class="img-wrap"><%= image_tag post.get_post_image(250,170) %></p>
         <% end %>
         <div class="card-body py-0">
           <h6 class="card-title"><%= post.title %></h6>
-          <h6 class="card-title d-inline-block">いいね○件</h6>
-          <h6 class="card-title d-inline-block pl-4">閲覧数○件</h6>
+          <h6 class="card-title d-inline-block"><i class="fas fa-heart fa-lg" style="color: #ff0000;"></i> いいね (<%=post.favorites.count %>)</h6>
+          <h6 class="card-title d-inline-block pl-4">コメント (<%=post.comments.count %>)</h6>
         </div>
       </div>
     </div>
