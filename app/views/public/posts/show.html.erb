@@ -45,7 +45,7 @@
       </table>
       <!--いいね機能-->
       <div id="favorite_buttons_<%= @post.id %>">
-        <%= render 'favorite', post: @post %>
+        <%= render 'public/posts/favorite', post: @post %>
       </div>
     </div>
   </div>
@@ -70,9 +70,9 @@
         </tr>
       <% @comments.each do |comment| %>
         <tr>
-          <td><%= comment.user.name %>：</td>
+          <td><%= comment.user.name %></td>
           <td><%= comment.comment_content %></td>
-          <td>(<%= comment.created_at.strftime('%Y/%m/%d') %>)</td>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td>
             <% if comment.user == current_user %>
               <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"btn btn-danger", data: { confirm: '削除しますか？' } %>
