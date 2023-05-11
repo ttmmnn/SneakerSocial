@@ -1,9 +1,9 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg bg-info bg-gradient">
-    <div class="container-md py-0">
-      <div class="ml-3 d-flex align-items-center">
+  <nav class="navbar navbar-expand-lg bg-info bg-gradient py-0">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
         <h2><%= link_to image_tag("logo.png"), root_path %></h2>
-        <h3 class="text-center mt-3" style="font-family: 'Impact', cursive;">Sneaker Social</h3>
+        <h4 class="text-center mt-3" style="font-family: 'Impact', cursive;">Sneaker Social</h4>
       </div>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -31,7 +31,7 @@
 
           <!--管理者がログインしているとき-->
           <% elsif admin_signed_in? %>
-            <div class=" mt-2 mr-2"><strong> 管理者 </strong></div>
+            <div class=" mt-2 mr-2"><strong> !!管理者!! </strong></div>
             <li>
               <%= link_to admin_posts_path, class: 'nav-link text-dark' do %>
               <i class="fas fa-shoe-prints"></i> 投稿一覧
