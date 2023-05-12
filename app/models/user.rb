@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+
   # 画像のサイズ調整と画像がない場合のデフォルト設定
   def get_profile_image(width,height)
     unless profile_image.attached?
@@ -27,20 +28,24 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   # フォローした時の処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  
+
   # フォローした時の処理
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-  
+
   # フォローしているか判定
   def following?(user)
     followings.include?(user)
+  end
+
+  def active_for_authentication?
+    super && (members_status == false)
   end
 
 end
