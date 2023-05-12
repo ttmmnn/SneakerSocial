@@ -1,7 +1,7 @@
 class Public::UsersController < ApplicationController
 
   # ゲストユーザーでedit画面に遷移させない
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_user, only: [:edit,:unsubscribe]
 
   def show
     @user = User.find(params[:id])
@@ -22,11 +22,22 @@ class Public::UsersController < ApplicationController
       redirect_to edit_post_path(@post)
     end
   end
-  
+
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorites)
+  end
+
+  def unsubscribe
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(members_status: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
 
@@ -37,7 +48,7 @@ class Public::UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image, :introduction, :email, :encrypted_password, :members_status)
   end
 
-  # ゲストユーザーでedit画面に遷移させないメソッド
+  # ゲストユーザーでedit画面に遷移させない
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "ゲストユーザー"

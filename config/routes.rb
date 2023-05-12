@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
-  # 管理者用
+  # 管理者ログイン
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
-  # ユーザー用
+  # ユーザー登録/ログイン
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
-  # 会員ゲストログイン
+  # ゲストログイン
   devise_scope :user do
     post '/users/guest_sign_in' => 'public/sessions#guest_sign_in'
   end
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # 管理者側
   namespace :admin do
     resources :posts, only: [:index, :show, :edit, :update, :destroy] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:destroy]
     end
 
     resources :users, only: [:index, :show, :edit, :update]
@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
 
+    get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    patch 'users/withdraw' => "users#withdraw", as: 'withdraw'
     resources :users, only: [:show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
@@ -45,8 +47,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-    patch 'users/withdraw' => "users#withdraw", as: 'withdraw'
+
     get "search" => "searches#search"
   end
 
