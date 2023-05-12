@@ -16,9 +16,13 @@ class Post < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def favorited?(user)
    favorites.where(user_id: user.id).exists?
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["body","title"]
   end
 
 end
