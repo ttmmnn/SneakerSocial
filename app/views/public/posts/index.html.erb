@@ -1,15 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 px-sm-0 mb-3">
+    <div class="col-sm-3 px-sm-0 mb-3">
       <h4 class="d-inline-block">投稿一覧</h4>
       <h5 class="d-inline-block ml-3">（全 <%= @posts.count %>件）</h5>
     </div>
-    <!--新規投稿リンク-->
-    <div class="col-sm-8">
+
+    <div class="col-sm-2">
+      <!--新規投稿リンク-->
       <%= link_to new_post_path, class:"btn btn-lg btn-primary" do %>
       <h6 class="mb-0"><i class="fas fa-plus-circle"></i> 投稿する <i class="fas fa-plus-circle"></i></h6>
       <% end %>
     </div>
+    <div class="col-sm-5" >
+      <!--投稿検索-->
+      <%= search_form_for @q, url: posts_path, class:"form-inline" do |f| %>
+        <%= f.search_field :title_or_body_cont, placeholder: "キーワード検索",class:"form-control mr-sm-2" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+
   </div>
 
   <!--投稿一覧-->
