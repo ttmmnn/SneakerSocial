@@ -48,4 +48,9 @@ class User < ApplicationRecord
     super && (members_status == false)
   end
 
+  # ransack 検索許可カラム（属性）
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
+
 end

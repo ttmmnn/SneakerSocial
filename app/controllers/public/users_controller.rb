@@ -40,6 +40,10 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
 
   # 投稿データのストロングパラメータ
   private
@@ -52,7 +56,8 @@ class Public::UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "ゲストユーザー"
-      redirect_to user_path(current_user) , flash[:notice] = 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      flash[:notice] = 'ゲストユーザーでは遷移できません。'
+      redirect_to user_path(current_user)
     end
   end
 

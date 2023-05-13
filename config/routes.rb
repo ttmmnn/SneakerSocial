@@ -45,6 +45,9 @@ Rails.application.routes.draw do
       member do
         get :favorites
       end
+      collection do
+        get 'search'
+      end
     end
 
 

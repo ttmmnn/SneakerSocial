@@ -24,6 +24,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to search_users_path, class: 'btn btn-primary mr-2' do %>
+              <i class="fas fa-users"></i> ユーザー検索
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary mr-2' do %>
               <i class="fas fa-sign-out-alt"></i> ログアウト
               <% end %>
@@ -66,10 +71,6 @@
             </li>
           <% end %>
         </ul>
-        <form class="d-flex ml-3">
-          <input class="form-control me-sm-2" type="search" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </nav>

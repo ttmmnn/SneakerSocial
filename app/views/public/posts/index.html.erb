@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <div class="col-sm-5" >
-      <!--投稿検索-->
+      <!--投稿検索フォーム-->
       <%= search_form_for @q, url: posts_path, class:"form-inline" do |f| %>
         <%= f.search_field :title_or_body_cont, placeholder: "キーワード検索",class:"form-control mr-sm-2" %>
         <%= f.submit "検索" %>
