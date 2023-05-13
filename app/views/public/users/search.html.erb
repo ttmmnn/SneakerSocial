@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h4>ユーザー検索</h4>
+    </div>
+    <div class="col-8">
+      <!--ユーザー検索フォーム-->
+      <%= search_form_for @q, url: search_users_path, class:"form-inline" do |f| %>
+        <%= f.search_field :name_cont, placeholder: "ユーザー名",class:"form-control mr-sm-2" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </div>
+
+  <!--ユーザー一覧-->
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>画像</th>
+            <th>ユーザー</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td class="align-middle">
+                <%= image_tag user.get_profile_image(50,50) %>
+              </td>
+              <td class="align-middle">
+                <%= link_to user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
