@@ -28,15 +28,18 @@
       <% end %>
 
       <!--フォローするボタン-->
-      <% if current_user.following?(@user) %>
-        <%= link_to  user_relationships_path(@user.id), method: :delete, class:"btn btn-secondary mb-3" do %>
-          <p class="mb-0">フォロー外す</p>
-        <% end %>
-      <% else %>
-        <%= link_to user_relationships_path(@user.id), method: :post, class:"btn btn-primary mb-3" do %>
-          <p class="mb-0">フォローする</p>
+      <% if @user != current_user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to  user_relationships_path(@user.id), method: :delete, class:"btn btn-secondary mb-3" do %>
+            <p class="mb-0">フォロー外す</p>
+          <% end %>
+        <% else %>
+          <%= link_to user_relationships_path(@user.id), method: :post, class:"btn btn-primary mb-3" do %>
+            <p class="mb-0">フォローする</p>
+          <% end %>
         <% end %>
       <% end %>
+
 
       <!--いいね記事一覧リンク-->
       <%= link_to favorites_user_path(@user), class:"btn btn-primary mb-3" do %>
