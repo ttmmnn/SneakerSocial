@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
     end
 
     sign_in user
-    redirect_to root_path
+    redirect_to about_path
   end
 
 

@@ -3,7 +3,7 @@ class Public::PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     # キーワード検索でヒットし投稿と退会していないユーザーステータスの投稿をすべて表示する
-    @posts = @q.result(distinct: true).includes(:user).where(users: { members_status: false })
+    @posts = @q.result(distinct: true).includes(:user).where(users: { members_status: false }).order(created_at: :desc)
     @post_page = Post.page(params[:page]).per(8)
   end
 
