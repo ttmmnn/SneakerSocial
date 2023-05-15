@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
 
+  before_action :ensure_correct_user, only: [:update, :edit]
+
   def index
     @q = Post.ransack(params[:q])
     # キーワード検索でヒットし投稿と退会していないユーザーステータスの投稿をすべて表示する
@@ -58,6 +60,13 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :image, :body)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    unless @post == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
 end

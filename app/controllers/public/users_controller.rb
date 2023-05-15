@@ -2,6 +2,8 @@ class Public::UsersController < ApplicationController
 
   # ゲストユーザーでedit画面に遷移させない
   before_action :ensure_guest_user, only: [:edit,:unsubscribe]
+   # ログインユーザー以外のeditとupdateをさせない
+  before_action :ensure_correct_user, only: [:update, :edit]
 
   def show
     @user = User.find(params[:id])
@@ -57,6 +59,14 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.name == "ゲストユーザー"
       flash[:notice] = 'ゲストユーザーでは遷移できません。'
+      redirect_to user_path(current_user)
+    end
+  end
+
+  # ログインしたユーザー以外のedit画面に遷移させない
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
       redirect_to user_path(current_user)
     end
   end
