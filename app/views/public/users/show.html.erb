@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-md-4 px-sm-0 mb-3">
       <h4 class="d-inline-block">マイページ</h4>
     </div>
@@ -17,7 +17,6 @@
   </div>
 
   <div class="row">
-
     <!--フォロワー/フォロー表示-->
     <div class="col-lg-2">
       <%= link_to user_followers_path(@user.id) do %>
@@ -39,7 +38,6 @@
           <% end %>
         <% end %>
       <% end %>
-
 
       <!--いいね記事一覧リンク-->
       <%= link_to favorites_user_path(@user), class:"btn btn-primary mb-3" do %>
@@ -69,6 +67,10 @@
     <!--投稿履歴一覧-->
     <div class="col-sm-12 mt-3">
       <%= render 'post_index', posts: @posts %>
+    </div>
+    <!--ページネーション-->
+    <div class="my-1" style="max-width: 200px; margin: 0 auto;">
+      <h3><%= paginate @posts %></h3>
     </div>
   </div>
 </div>

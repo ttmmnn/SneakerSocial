@@ -44,7 +44,7 @@ class Public::UsersController < ApplicationController
 
   def search
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   # 投稿データのストロングパラメータ
