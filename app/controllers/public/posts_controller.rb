@@ -5,8 +5,7 @@ class Public::PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     # キーワード検索でヒットし投稿と退会していないユーザーステータスの投稿をすべて表示する
-    @posts = @q.result(distinct: true).includes(:user).where(users: { members_status: false }).order(created_at: :desc)
-    @post_page = Post.page(params[:page]).per(8)
+    @posts = @q.result(distinct: true).includes(:user).where(users: { members_status: false }).order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -64,7 +63,7 @@ class Public::PostsController < ApplicationController
 
   def ensure_correct_user
     @post = Post.find(params[:id])
-    unless @post == current_user
+    unless @post.user == current_user
       redirect_to user_path(current_user)
     end
   end
