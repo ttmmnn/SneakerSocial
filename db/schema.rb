@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2023_05_05_052608) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "post_id", null: false
-    t.text "comment_content", default: "", null: false
+    t.text "comment_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_05_05_052608) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title", default: "", null: false
-    t.text "body", default: "", null: false
+    t.text "body", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
