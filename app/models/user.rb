@@ -18,6 +18,9 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
   has_one_attached :profile_image
+  
+  validates :name,presence: true
+  validates :introduction,presence: true
 
 
   # 画像のサイズ調整と画像がない場合のデフォルト設定

@@ -57,7 +57,7 @@ class Public::UsersController < ApplicationController
   # ゲストユーザーでedit画面に遷移させない
   def ensure_guest_user
     @user = User.find(params[:id])
-    if @user.name == "ゲストユーザー"
+    if @user.email == "admin@admin"
       flash[:notice] = 'ゲストユーザーでは遷移できません。'
       redirect_to user_path(current_user)
     end

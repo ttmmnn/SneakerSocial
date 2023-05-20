@@ -30,7 +30,9 @@
                 <%= image_tag user.get_profile_image(50,50) %>
               </td>
               <td class="align-middle">
-                <%= user.name %>
+                <%= link_to admin_user_path(user) do %>
+                  <%= user.name %>
+                <% end %>
               </td>
               <td class="align-middle">
                 <%= user.email %>
