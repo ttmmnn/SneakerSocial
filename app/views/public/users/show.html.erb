@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col-md-4 px-sm-0 mb-3">
-      <h4 class="d-inline-block">マイページ</h4>
+      <% if @user == current_user %>
+        <h4 class="d-inline-block">マイページ</h4>
+      <% else %>
+        <h4 class="d-inline-block">投稿者</h4>
+      <% end %>
     </div>
     <!--ユーザー編集リンク-->
     <div class="col-md-6">
