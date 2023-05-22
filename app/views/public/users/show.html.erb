@@ -22,7 +22,7 @@
 
   <div class="row">
     <!--フォロワー/フォロー表示-->
-    <div class="col-lg-2">
+    <div class="col-lg-2 d-flex flex-column">
       <%= link_to user_followers_path(@user.id) do %>
         <P>フォロワー： <%= @user.followers.count %></P>
       <% end %>
@@ -50,11 +50,11 @@
 
     </div>
     <!--ユーザー画像-->
-    <div class="col-lg-2">
-      <%= image_tag @user.get_profile_image(280,280) %>
+    <div class="col-lg-3">
+      <%= image_tag @user.get_profile_image(320,320) %>
     </div>
     <!--ネーム、紹介文-->
-    <div class="col-lg-7 offset-lg-1">
+    <div class="col-lg-7">
       <div class="card text-white bg-secondary border-dark mb-3" style="max-width: 20rem;">
         <div class="card-header">ユーザー名</div>
         <div class="card-body">
