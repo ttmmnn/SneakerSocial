@@ -35,7 +35,8 @@ SNSを活用してコミュニケーションや情報収集ができる場を�
 
 
 ## 設計書
-- ER図: https://drive.google.com/file/d/1oDcKaTU-XZSY8Q0TxRkQHnW6TPR9ldie/view?usp=share_link
+- ER図
+  https://drive.google.com/file/d/1oDcKaTU-XZSY8Q0TxRkQHnW6TPR9ldie/view?usp=share_link
 
 - ワイヤーフレーム（ユーザー）：https://drive.google.com/file/d/13PlO5UYxPIrE1Em5Aes19FI_fJ37fllc/view?usp=share_link
 - ワイヤーフレーム（管理者）：https://drive.google.com/file/d/1V0OnfchMCditbYiREUY5ReXdkrl2XE9j/view?usp=share_link
