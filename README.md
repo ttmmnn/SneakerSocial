@@ -1,5 +1,7 @@
 # SneakerSocial
 
+<img width="1081" alt="top画像" src="https://github.com/ttmmnn/SneakerSocial/assets/124642000/fc2ddd82-459a-42f3-8233-196f27a96bae">
+
 ## サイト概要
 気に入ったスニーカーの画像を投稿・閲覧し<br>
 いいね、コメント機能を通じてコミュニケーションしながら情報の共有をすることができる。
