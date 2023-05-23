@@ -37,6 +37,16 @@ SNSを活用してコミュニケーションや情報収集ができる場を�
 ## 設計書
 - ER図: https://drive.google.com/file/d/1oDcKaTU-XZSY8Q0TxRkQHnW6TPR9ldie/view?usp=share_link
 
+- ワイヤーフレーム（ユーザー）：https://drive.google.com/file/d/13PlO5UYxPIrE1Em5Aes19FI_fJ37fllc/view?usp=share_link
+- ワイヤーフレーム（管理者）：https://drive.google.com/file/d/1V0OnfchMCditbYiREUY5ReXdkrl2XE9j/view?usp=share_link
+
+- UIフロー図（ユーザー）：https://drive.google.com/file/d/1IZd4L7vMhNH2o2WuGCS4wS1n8mmn3Lib/view?usp=share_link
+- UIフロー図（管理者）：https://drive.google.com/file/d/19PA4wqaBq9oTY8ccVJAsSqHQgNOglOAN/view?usp=share_link
+
+- テーブル定義書: https://docs.google.com/spreadsheets/d/1QSWaS5M2Ucm8jP30h7H9zgNSdbsuxG78RkCEOChGq10/edit?usp=sharing
+
+- アプリケーション詳細設計: https://docs.google.com/spreadsheets/d/1hljwCpluGsUhtg3NWySgkzU74wEBq3_AWOGTECKm7Zc/edit?usp=sharing
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
