@@ -35,7 +35,7 @@ SNSを活用してコミュニケーションや情報収集ができる場を�
 
 
 ## 設計書
-- 未定
+- ER図: https://drive.google.com/file/d/1oDcKaTU-XZSY8Q0TxRkQHnW6TPR9ldie/view?usp=share_link
 
 ## 開発環境
 - OS：Linux(CentOS)
