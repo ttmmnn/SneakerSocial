@@ -35,7 +35,7 @@
           <td><%= @post.created_at.to_s(:datetime_jp) %></td>  <!--日付の表示調整した-->
         </tr>
         <tr>
-          <th style="width:150px">ユーザー名</th>
+          <th style="width:150px">投稿者</th>
           <td><%= link_to user_path(@post.user.id) do %><%= @post.user.name %><% end %></td>
         </tr>
         <tr>
@@ -73,7 +73,7 @@
         </tr>
       <% @comments.each do |comment| %>
         <tr>
-          <td><%= comment.user.name %></td>
+          <td><%= link_to user_path(comment.user.id) do %><%= comment.user.name %><% end %></td>
           <td><%= comment.comment_content %></td>
           <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td>
