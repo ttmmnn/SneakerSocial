@@ -1,9 +1,9 @@
 <!--入力フォーム-->
 <%=form_with model: @post, local: true do |f| %>
   <div class="form-group">
-    <%= f.file_field :image, accept: "image/*", class:"w-100" %>
+    <%= f.file_field :image, accept: "image/*", class:"form-control w-100" %>
   </div>
-  <div id="new-image"></div>
+  <div class="text-center my-3", id="new-image"></div>
 
   <div class="form-group">
     <%= f.label "タイトル" %>
