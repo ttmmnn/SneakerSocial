@@ -21,7 +21,7 @@ class Public::UsersController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:alert] = "空欄を入力してください"
-      redirect_to edit_post_path(@post)
+      redirect_to edit_user_path(@user)
     end
   end
 
